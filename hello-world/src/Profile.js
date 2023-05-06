@@ -4,11 +4,14 @@
  *  - Named Export & Export
  */
 
+
 //  const PI = 3.14;
 
 //  const name = "Ahmed";
+import React from 'react'
 import PropTypes from 'prop-types'
 export default function Profile(props){
+
     const person = {
         src: 'https://randomuser.me/api/portraits/med/men/27.jpg',
         name: 'Aariz',
@@ -33,9 +36,21 @@ export default function Profile(props){
     </>
 }
 function Avatar({person:{src, alt, size}}){
-   
-    return <img src={src} width={size} height={size} alt={alt}/>
-   
+    const element = <h1 className='myClass'>No image was found!</h1>
+    const element2 = React.createElement('h1', {className:'myClass'}, 'No image was found!' )
+    //Above code generated a following
+    // const obj = {
+    //     type:'h1',
+    //     props: {
+    //         className:'myClass',
+    //         children: 'No image was found!'
+    //     }
+    // }
+    const isFlag = false
+    if(isFlag)
+        return <img src={src} width={size} height={size} alt={alt}/>
+    else
+        return element2
    
 }
 Avatar.defaultProps = {
@@ -46,9 +61,13 @@ Avatar.defaultProps = {
     }
 }
 Avatar.propTypes = {
-    person: PropTypes.object
+    person: PropTypes.object.isRequired
 }
 // export { PI, name }
 
 // const obj = {PI, name, Avatar};
 // export default obj;
+
+//something
+//again something
+
