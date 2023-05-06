@@ -5,6 +5,7 @@ import React from 'react'
 import Counter from './Counter'
 import Product from './Product';
 import Clock from './Clock';
+import Parent from './Parent'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -46,15 +47,16 @@ function App() {
       {/* {element} */}
       {/* {<strong style={style}>{'Hello '+ FullName}</strong> } */}
      {/* <Button variant="success">Hello {FullName}</Button> */}
-     {/* <Profile person={person}  score={30}>
+     <Profile person={person}  score={30}>
         <div>
           <h1>Hello Class!</h1>
         </div>
 
-     </Profile> */}
+     </Profile>
      {/* <Counter offset='5'/> */}
      {/* <Product /> */}
-     <Clock />
+     {/* <Clock />
+     <Parent /> */}
     </div>
   );
 }

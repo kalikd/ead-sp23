@@ -30,9 +30,9 @@ export default function Profile(props){
     const person4 = undefined
     return <>
         <Avatar {...props} person={person}  />
-        <Avatar {...props} person={person2}  />
+        {/* <Avatar {...props} person={person2}  />
         <Avatar {...props} person={person3}  />
-        <Avatar {...props} person={person4} />
+        <Avatar {...props} person={person4} /> */}
     </>
 }
 function Avatar({person:{src, alt, size}}){
@@ -46,7 +46,7 @@ function Avatar({person:{src, alt, size}}){
     //         children: 'No image was found!'
     //     }
     // }
-    const isFlag = false
+    const isFlag = true
     if(isFlag)
         return <img src={src} width={size} height={size} alt={alt}/>
     else
