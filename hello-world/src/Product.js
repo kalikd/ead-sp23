@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
 export default class Product extends React.Component {
     constructor(props){
@@ -18,9 +19,19 @@ export default class Product extends React.Component {
    
     render(){
        return <>
-        <ul>
+       <Outlet />
+            <ul>
+                <li>
+                    <Link to={'product-details'}>Product Detail</Link>
+                </li>
+                <li>
+                    <Link to={'/product'}> Related Product </Link>
+                </li>
+            </ul>
+            
+        {/* <ul>
           {this.state?.products?.map(product => <li key={product.id}>{product.title}</li>)}
-        </ul>
+        </ul> */}
     </>
     }
 }
