@@ -17,6 +17,8 @@ import Dashboard from './Dashboard';
 import Login from './Login';
 import ClickCounter from './ClickCounter';
 import KeypressCounter from './KeypressCounter';
+import { PersonProvider } from './PersonContext';
+import A from './A';
 
 
 
@@ -61,11 +63,16 @@ function App() {
         <Route path='*' element={<NotFound/>} />
         
      </Routes> */}
-
-     <ClickCounter name='KD'/>
-     <br/>
-     <KeypressCounter/>
-
+     {/* <Counter>
+      {(count,increment)=> ( <ClickCounter count={count} increment={increment} />)}  
+    </Counter> 
+     <br/> */}
+     {/* <Counter render={(count,increment)=> ( <KeypressCounter count={count} increment={increment} />)} /> */}
+     {/* <KeypressCounter/> */}
+     <PersonProvider value={'Ali'}>
+        <A/>
+     </PersonProvider>
+     
     </div>
   );
 }

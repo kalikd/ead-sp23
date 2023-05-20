@@ -4,9 +4,9 @@ import withCounter from "./CounterHOC";
 
 function ClickCounter(props){
     return <>
-       <h3>Hi {props.name}!</h3>
+       <h3>Hi !</h3>
        <label onClick={props.increment}> You clicked me {props.count}x times.</label>
     </>
 }
 
-export default withCounter(ClickCounter);
+export default ClickCounter;
