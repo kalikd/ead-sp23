@@ -1,15 +1,30 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
+
+const initialState = 0
+const reducer = (state, action) => {
+    switch(action.type){
+        case 'increment':{
+            return state + action.value
+        }
+        case 'decrement':{
+            return state - action.value
+        }
+        default: {
+            return state
+        }
+    }
+
+}
+
 
 export default function Counter(props){
-    const [count, setCount] = useState(0);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    function increment(){
-        setCount(count+1);
-    }
+   
     return <>
-        {
-        props.children(count, increment)
-        }
+     <button onClick={()=> dispatch({type:'increment', value: 5})}>+</button>
+     <label>{state}</label>
+     <button onClick={()=> dispatch({type: 'decrement', value: 2})}>-</button>
     </>
 
 }

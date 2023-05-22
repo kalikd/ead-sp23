@@ -69,10 +69,10 @@ function App() {
      <br/> */}
      {/* <Counter render={(count,increment)=> ( <KeypressCounter count={count} increment={increment} />)} /> */}
      {/* <KeypressCounter/> */}
-     <PersonProvider value={'Ali'}>
+     {/* <PersonProvider value={'Ali'}>
         <A/>
-     </PersonProvider>
-     
+     </PersonProvider> */}
+     <Counter/>
     </div>
   );
 }
