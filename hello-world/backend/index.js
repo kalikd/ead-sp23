@@ -1,72 +1,43 @@
-//const fs = require('fs') // Importing builtin/third-party module
-const lib = require('./lib') // Importing custom module
+const express = require('express');
+const path = require('path');
 
-//lib()
-/**
- * NPM Packages VS Library
- * 
- * Modules in NodesJS
- * 1. Builtin modules
- * 2. Custom modules (User defined modules)
- * 3. Third-party modules
- * 
- */
-
-// const qs = require('querystring');
-
-// const obj = {
-//     name: 'Ahmed',
-//     age:12,
-//     city: 'SUK'
-// }
-
-// console.log(`Stringified: ${qs.stringify(obj)}`)
-// console.log(`Parsed: ${JSON.stringify(qs.parse('name=Ahmed&age=12&city=SUK'))}`)
-// console.log(qs.escape('Ahmed Ali'))
-
-// const path = require('path')
-
-// console.log(path.join('api','booking','getBooking'))
-
-// console.log(path.normalize('api////booking///getBooking////ssdsd'))
-
-// console.log(path.extname('lib.js'))
-// console.log(path.dirname(__dirname+'lib.js'))
-
-// console.log(process.argv);
-
-// switch(+process.argv[2]){
-//     case 1: 
-//     console.log("One");
-//     break;
-//     case 2: 
-//     console.log("Two")
-// }
-const http = require("http");
-const fs = require("fs");
-const path = require("path");
+const bodyParser = require('body-parser');
 
 
-const server = http.createServer((req, res) => {
-    const home = fs.readFileSync(path.join(__dirname, "pages","home.html"));
-    const about = fs.readFileSync(path.resolve(path.join(__dirname, "pages","about.html")));
-    const notFound = fs.readFileSync(path.resolve(path.join(__dirname, "pages","notfound.html")));
-    if(req.url == '/home'){
-        
-        res.end(home)
-    }
-    else if(req.url == '/about'){
-        res.end(about);
-    }
-    else
-        res.end(notFound)
-    
-    // res.end(()=>{
-    //     console.log('done!')
-    // })
+const app = express();
+
+app.use(bodyParser.json());
+app.set('view engine', 'ejs')
+
+app.get('/', (req, res) => {
+    res.render('home', { name: "KD" })
+});
+
+app.get('/about', (req, res) => {
+    const products = [
+        { name: "Macbook Pro", price: 3500 },
+        { name: "Nestle Water", price: 80 },
+        { name: "Milo", price: 100 }
+    ]
+    res.render('about', { products })
+});
+
+app.post('/student/save', (req, res) => {
+    res.json(req.body)
+});
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, "pages","notfound.html"))
+// });
+
+app.use('*', function(req, res) {
+   res.render('notfound')
 })
 
-server.listen(3002,function(){
-    console.log('Server is listening at port 3002')
-})
 
+
+
+
+app.listen('3005', function(){
+    console.log('app listening on port 3005!');
+})
