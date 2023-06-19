@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new Product</title>
+</head>
+<body>
+    <%-include("navbar")%>
+    <form action="/product/save" method="post">
+        <label>
+            Product Name:
+            <input type="text" name="name" placeholder="Enter product name">
+        </label><br>
+        <label>
+            Price:
+            <input type="number" name="price" placeholder="Enter price">
+        </label>
+        <br>
+        <label>
+            Qty:
+            <input type="number" name="qty" placeholder="Enter qty">
+        </label>
+        <br>
+        <label>
+            Manufacturer:
+            <input type="text" name="manufacturer" placeholder="Enter manufacturer">
+        </label>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
